@@ -29,7 +29,7 @@ export class ComputersItemComponent implements OnInit {
     })
   }
 
-  goBackToProjects() {
+  goBackToComputers() {
     this.router.navigate(['/computers']);
   }
 }
