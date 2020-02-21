@@ -4,7 +4,7 @@ import { Computer } from '@computers/core-data';
 @Component({
   selector: 'computers-computers-details',
   templateUrl: './computers-details.component.html',
-  styleUrls: ['./computers-details.component.css']
+  styleUrls: ['./computers-details.component.scss']
 })
 export class ComputersDetailsComponent {
   currentComputer: Computer;

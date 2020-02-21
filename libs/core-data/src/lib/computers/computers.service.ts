@@ -12,7 +12,7 @@ export class ComputersService {
   constructor(private httpClient: HttpClient) { }
 
   getUrl() {
-    return `{$BASE_URL}${this.model}`
+    return `${BASE_URL}${this.model}`
   }
 
   all() {

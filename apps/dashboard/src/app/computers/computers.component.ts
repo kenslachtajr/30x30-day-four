@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'computers-computers',
   templateUrl: './computers.component.html',
-  styleUrls: ['./computers.component.css']
+  styleUrls: ['./computers.component.scss']
 })
 export class ComputersComponent implements OnInit {
   computers$;
