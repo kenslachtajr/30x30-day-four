@@ -32,7 +32,7 @@ export class ComputersService {
   }
 
   update(computer) {
-    return this.httpClient.patch(this.getUrlForId(computer), computer)
+    return this.httpClient.patch(this.getUrlForId(computer.id), computer)
   }
 
   delete(computerId) {

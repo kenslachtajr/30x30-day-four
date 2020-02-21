@@ -52,11 +52,12 @@ export class ComputersComponent implements OnInit {
   }
 
   updateComputer() {
-    this.computersService.update(this.form.value).subscribe(() => {
-      this.getComputers();
-      this.resetComputer();
-    });
-    this.notify.notification(`you have updated ${this.form.value.title}`);
+    this.computersService.update(this.form.value)
+      .subscribe(() => {
+        this.getComputers();
+        this.resetComputer();
+      });
+      this.notify.notification(`You have updated ${this.form.value.title}`);
   }
 
   createComputer() {
@@ -64,7 +65,7 @@ export class ComputersComponent implements OnInit {
       this.getComputers();
       this.resetComputer();
     });
-    this.notify.notification(`you have updated ${this.form.value.title}`);
+    this.notify.notification(`You have created ${this.form.value.title}`);
   }
 
   deleteComputer(computer) {
