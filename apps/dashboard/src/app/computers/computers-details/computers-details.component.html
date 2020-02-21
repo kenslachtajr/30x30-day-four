@@ -1,0 +1,64 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentComputer.id; else elseBlock">{{
+          originalTitle
+        }}</span>
+        <ng-template #elseBlock>Select a computer</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+
+  <form [formGroup]="form" (submit)="saved.emit(currentComputer)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Make"
+          formControlName="make"
+          type="text"
+          name="make"
+        />
+        <mat-error *ngIf="form.get('make')">Required Field</mat-error>
+      </mat-form-field>
+
+      <section class="full-width">
+        <h4 formControlName="ram">RAM: {{ currentComputer.ram }} GB</h4>
+        <mat-slider
+          class="full-width"
+          min="0"
+          max="32"
+          thumbLabel
+          name="ram"
+          formControlName="ram"
+        >
+        </mat-slider>
+        <mat-error *ngIf="form.get('ram').hasError('required')">Required Field</mat-error>
+      </section>
+
+      <section>
+        <mat-checkbox formControlName="isDesktop" name="isDesktop">
+          Is A Desktop
+        </mat-checkbox>
+        <mat-error *ngIf="form.get('isDesktop').hasError('required')">Required Field</mat-error>
+      </section>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" [disabled]="form.invalid" mat-button color="primary">{{currentComputer.id ? 'Save' : 'Create'}}</button>
+      <button type="button" mat-button (click)="cancelled.emit(currentComputer)">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
